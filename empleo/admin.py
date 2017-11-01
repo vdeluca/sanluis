@@ -21,3 +21,4 @@ class PostulanteAdmin(admin.ModelAdmin):
 
 # Register your models here.
 admin.site.register(Postulante, PostulanteAdmin)
+admin.site.register(Puesto)
