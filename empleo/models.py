@@ -21,7 +21,7 @@ class Postulante(models.Model):
 	referencias = models.TextField(verbose_name="Referencias", blank=True)
 	dni = models.CharField(max_length=8 ,verbose_name="DNI")
 	nacimiento = models.DateField(verbose_name="Fecha de Nacimiento")
-	hijos = models.IntegerField(verbose_name="Cantidad de hijos", blank=True)
+	hijos = models.IntegerField(verbose_name="Cantidad de hijos", blank=True, null=True)
 	estado_civil = models.CharField(max_length=30, verbose_name="Estado Civil", blank=True)
 	nacionalidad = models.CharField(max_length=30, verbose_name="Nacionalidad")
 	antecedentes = models.TextField(blank=True, verbose_name="Antecedentes")
