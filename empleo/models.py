@@ -33,10 +33,18 @@ class Postulante(models.Model):
 		return today.year - self.nacimiento.year - ((today.month, today.day) < (self.nacimiento.month, self.nacimiento.day))
 
 	def foto_tag(self):
-		return u'<img src="%s" />' % (self.foto.url)
+		if self.foto:
+			foto = self.foto.url
+		else:
+			foto = "/static/img/noimg.jpg"
+		return u'<img src="%s" />' % (foto)
 
 	def thumb_tag(self):
-		return u'<img height="60px" src="%s" />' % (self.foto.url)
+		if self.foto:
+			foto = self.foto.url
+		else:
+			foto = "/static/img/noimg.jpg"
+		return u'<img height="60px" src="%s" />' % (foto)
 
 	foto_tag.short_description = 'Foto'
 	foto_tag.allow_tags = True
