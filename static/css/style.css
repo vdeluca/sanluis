@@ -245,10 +245,16 @@ header .navbar {
   color: #fff;
 }
 #banner .block h1 {
-  padding-bottom: 25px;
+  padding-bottom: 10px;
   font-size: 55px;
   font-weight: 100;
   color: #80d6a3;
+}
+#banner .block h3 {
+  padding-bottom: 25px;
+  font-size: 55px;
+  font-weight: 100;
+  color: #fff;
 }
 #banner .block h2 {
   font-size: 18px;
@@ -925,6 +931,14 @@ footer p {
 #blog-post .content .btn-read {
   background: #80d6a3;
   color: #fff;
+  padding:10px 20px;
+  font-size: 13px;
+  margin-top: 15px;
+  border-radius: 25px;
+}
+#blog-post .content .btn-read2 {
+  background: #80d6a3;
+  color: #80d6a3;
   padding:10px 20px;
   font-size: 13px;
   margin-top: 15px;
