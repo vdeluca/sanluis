@@ -32,6 +32,17 @@ class Postulante(models.Model):
 		today = date.today()
 		return today.year - self.nacimiento.year - ((today.month, today.day) < (self.nacimiento.month, self.nacimiento.day))
 
+	def foto_tag(self):
+		return u'<img src="%s" />' % (self.foto.url)
+
+	def thumb_tag(self):
+		return u'<img height="60px" src="%s" />' % (self.foto.url)
+
+	foto_tag.short_description = 'Foto'
+	foto_tag.allow_tags = True
+	thumb_tag.short_description = 'Foto'
+	thumb_tag.allow_tags = True
+
 	def __unicode__(self):
 		return self.nombre
 	
@@ -43,5 +54,5 @@ class Puesto(models.Model):
 	horario = models.TextField(verbose_name="Horario")
 	telefono = models.CharField(max_length=15,verbose_name="Teléfono")
 	nombre = models.CharField(max_length=150,verbose_name="Nombre y Apellido")
-	observaciones = models.TextField(verbose_name="Observaciones")
+	observaciones = models.TextField(verbose_name="Observaciones", blank=True, null=True)
 	trabajador = models.ForeignKey(Postulante,blank=True,null=True)
