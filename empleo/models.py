@@ -63,4 +63,22 @@ class Puesto(models.Model):
 	telefono = models.CharField(max_length=15,verbose_name="Teléfono")
 	nombre = models.CharField(max_length=150,verbose_name="Nombre y Apellido")
 	observaciones = models.TextField(verbose_name="Observaciones", blank=True, null=True)
-	trabajador = models.ForeignKey(Postulante,blank=True,null=True)
+	
+	def __unicode__(self):
+		return u'%s: %s' %(self.nombre, self.puesto)
+	
+class Asignacion(models.Model):
+	trabajador = models.ForeignKey(Postulante)
+	empleador = models.ForeignKey(Puesto)
+	fechaInicio = models.DateField(verbose_name="Fecha de Inicio")
+	fechaFin = models.DateField(verbose_name="Fecha de Finalización",blank=True,null=True)
+	obsTrabajador = models.TextField(verbose_name="Observaciones del Trabajador",blank=True,null=True)
+	obsEmpleador = models.TextField(verbose_name="Observaciones del Empleador",blank=True,null=True)
+	obsNuestras = models.TextField(verbose_name="Observaciones Nuestras",blank=True,null=True)
+
+	def __unicode__(self):
+		return u"%s => %s" % (self.trabajador, self.empleador)
+
+
+	class Meta:
+		verbose_name_plural = "Asignaciones"

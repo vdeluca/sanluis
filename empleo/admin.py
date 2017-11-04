@@ -9,6 +9,10 @@ class PostulanteAdmin(admin.ModelAdmin):
 	#fields = ( 'foto_tag', )
 	readonly_fields = ['foto_tag','edad',]
 
+class AsignacionAdmin(admin.ModelAdmin):
+	list_display = ('empleador', 'trabajador', 'fechaInicio', 'fechaFin')
+
 # Register your models here.
 admin.site.register(Postulante, PostulanteAdmin)
 admin.site.register(Puesto)
+admin.site.register(Asignacion, AsignacionAdmin)
